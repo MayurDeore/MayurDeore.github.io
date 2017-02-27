@@ -1,12 +1,33 @@
 <html>
 <head>
     <title>Test Page</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="Scripts/main.js"></script>
 </head>
 <body>
 
     <p>
         Hi This is Test Github Page.
+
     </p>
+
+
+
+    <script>
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }).catch(function (err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+    </script>
 </body>
 
 </html>
