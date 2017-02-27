@@ -38,7 +38,33 @@ self.addEventListener('fetch', function (event) {
             {
                 return response;
             }
-            return fetch(event.request);
+
+            //clone request one for cache and one to fetch
+
+            var requestToCache = event.request.clone();
+
+
+
+
+            return fetch(requestToCache).then(function (response) {
+
+
+                if (!response || response!==200 ||response!=='basic') {
+                    return response;
+                }
+
+                var responseToCache = response.clone();
+
+                caches.open(CACHE_NAME).
+                    then(function (cache) {
+
+                        cache.put(event.request, responseToCache);
+                    });
+
+                return response;
+
+
+            });
         })
 
 
