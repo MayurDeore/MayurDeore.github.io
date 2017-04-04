@@ -12,13 +12,11 @@
   .speech img {float: right; width: 40px }
 </style>
 
-<!-- Search Form -->
-<form id="labnol" method="get" >
+
   <div class="speech">
     <input type="text" name="q" id="transcript" placeholder="Speak" />
     <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
   </div>
-</form>
 
 <!-- HTML5 Speech Recognition API -->
 <script>
@@ -38,7 +36,7 @@
                 document.getElementById('transcript').value
                                  = e.results[0][0].transcript;
                 recognition.stop();
-                document.getElementById('labnol').submit();
+                //document.getElementById('labnol').submit();
             };
 
             recognition.onerror = function(e) {
