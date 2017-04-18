@@ -36,6 +36,10 @@
                 document.getElementById('transcript').value
                                  = e.results[0][0].transcript;
                 recognition.stop();
+                var str = document.getElementById('transcript').value;
+                if (str.toLowerCase().indexOf('leave') !== -1) {
+                    speak('Please say one of PL,CL or HL');
+                }
                 //document.getElementById('labnol').submit();
             };
 
@@ -45,7 +49,7 @@
 
         }
     }
-    speak('Jon likes Iced Tea!');
+    
 
     // say a message
     function speak(text, callback) {
