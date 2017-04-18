@@ -38,7 +38,7 @@
                 recognition.stop();
                 var str = document.getElementById('transcript').value;
                 if (str.toLowerCase().indexOf('leave') !== -1) {
-                    speak('Please say one of PL,CL or HL');
+                    speak('Please say one of P L,C L or H L');
                 }
                 //document.getElementById('labnol').submit();
             };
@@ -50,7 +50,7 @@
         }
     }
 
-    speak('Please say one of PL,CL or HL');
+    speak('Please say one of P L,C L or H L');
     // say a message
     function speak(text, callback) {
         var u = new SpeechSynthesisUtterance();
